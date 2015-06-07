@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="{{ url_for('add_post') }}" method="post">
+        <table style="width:400px; margin: 30px auto">
+            <tr>
+                <td><label for="title">Тема</label></td>
+                <td><input name='title' type="text" value="{{ data_dict['title'] }}"/></td>
+            </tr>
+            <tr>
+                <td><label for="author">Автор</label></td>
+                <td><input name='author' type="text" value="{{ data_dict['author'] }}"/></td>
+            </tr>
+            <tr>
+                <td><label for="text">Сообщение</label></td>
+                <td><input name='text' type="text" value="{{ data_dict['text'] }}"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="submit"/></td>
+            </tr>
+        </table>
+    </form>
+
+
+        {% for post in entries %}
+        <table style="border: 1px solid #000000; margin-top: 10px">
+            <tr>
+                <td>Тема</td>
+                <td>{{ post['title'] }}</td>
+            </tr>
+            <tr>
+                <td>Автор</td>
+                <td>{{ post['author'] }}</td>
+            </tr>
+            <tr>
+                <td>Сообщение</td>
+                <td>{{ post['text'] }}</td>
+            </tr>
+        </table>
+        {% endfor %}
+
+
+
+{% endblock %}

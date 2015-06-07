@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="{{ url_for('registration') }}" method="post">
+        <table style="width:400px; margin: 30px auto">
+            <tr>
+                <td><label for="login">Логин/email</label></td>
+                <td><input name='login' type="text" value="{{ data_dict['login'] }}"/></td>
+            </tr>
+            <tr>
+                <td><label for="pass">Пароль</label></td>
+                <td><input name='pass' type="text"/></td>
+            </tr>
+            <tr>
+                <td><label for="repeat_pass">Повторите пароль</label></td>
+                <td><input name='repeat_pass' type="text"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="submit"/></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

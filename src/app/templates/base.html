@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="wrap">
+			<header>
+				<div class="login">
+					<ul>
+						<a href="/login"><li>Войти</li></a>
+						<a href="/registration"><li>Регистрация</li></a>
+						<a href="/basket"><li class="basket">Корзина</li></a>
+					</ul>
+				</div>
+				<div class="logo-menu">
+					<a href="/">
+						<div class="shadow">
+							<div class="logo">СУПЕР БЛОГ</div>
+						</div>
+						
+					</a>
+					<div class="menu">
+						<nav>
+							<ul>
+
+								{% for item in menu %}
+		                            {% if request.path == item.url %}
+								        <li class="active"><a href="{{ item.url }}">{{ item.name }}</a></li>
+		                            {% else %}
+		                                <li><a href="{{ item.url }}">{{ item.name }}</a></li>	
+		                            {% endif %}
+								{% endfor %}
+							</ul>
+						</nav>
+					</div>
+				</div>
+				
+				<div class="title">
+					<h1>{{ title }}</h1>
+					<p>И ещё какой-то текст</p>
+				</div>
+			</header>
+			
+			<div class="main">
+				<div class="posts">
+				{% block content %} {% endblock %}
+				</div>
+				<div class="right-col">
+					<div class="search">
+						<form action="">
+							<input type="text" placeholder="Поиск">
+						</form>
+					</div>
+					<div class="last_comments">
+						<div class="right-col-title">ПОСЛЕДНИЕ КОММЕНТАРИИ</div>
+						<div class="right-col-comment">
+							<table>
+								<tr>
+									<td class="photo" rowspan="2">
+										<img src="static/images/WoodBlog_34.jpg" alt="">
+									</td>
+									<td class="name">Name <span>2 ours ago</span></td>
+								</tr>
+								<tr>
+										
+									<td colspan="2" class="comment-text">Текст Текст Текст Текст Текст Текст екст Текст Текст екст Текст Текст екст Текст Текст </td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="right-col-comment">
+							<table>
+								<tr>
+									<td class="photo" rowspan="2"><img src="static/images/WoodBlog_39.jpg" alt=""></td>
+									<td class="name">Jack Jackson <span>1 ours ago</span></td>
+								</tr>
+								<tr>
+										
+									<td colspan="2" class="comment-text">екст Текст Текст екст Текст Текст екст Текст Текст екст Текст Текст екст Текст Текст екст Текст Текст Текст Текст Текст Текст Текст Текст </td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="right-col-comment">
+							<table>
+								<tr>
+									<td class="photo" rowspan="2"><img src="static/images/WoodBlog_41.jpg" alt=""></td>
+									<td class="name">Jack Jackson <span>1 ours ago</span></td>
+								</tr>
+								<tr>
+										
+									<td colspan="2" class="comment-text">Текст Текст Текст Текст Текст Текст </td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<!-- <div class="adv">
+						<div class="right-col-title">ПРОДУКТЫ</div>
+						<img src="" alt="">
+					</div> -->
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			
+		</div>
+		<div style="clear:both"></div>
+		<footer>
+			<div class="footer">
+				<div class="footer-titles">
+					<div class="footer-title logo">СУПЕР БЛОГ</div>
+					<div class="footer-title">TAGS</div>
+					<div class="footer-title">FLICKR FOTOS</div>
+					<div class="footer-title">LAST TWEETS</div>
+				</div>
+
+				<div class="footer-contents">
+					<div class="footer-content footer-text">
+						Kinetico is a simple and elegant commerce theme. 
+						Easy to customize, responsive friendly, with a digital 
+						product orientation.
+					</div>
+					<div class="footer-content">
+						<table>
+							<tr>
+								<td><a href="">Технологии 3</a></td>
+								<td><a href="">Картинки 22</a></td>
+							</tr>
+							<tr>
+								<td><a href="">HTML 13</a></td>
+								<td><a href="">CSS 105</a></td>
+							</tr>
+							<tr>
+								<td><a href="">PHP 255</a></td>
+								<td><a href="">Python 128</a></td>
+							</tr>
+							<tr>
+								<td><a href="">Apache 6</a></td>
+								<td><a href="">Mysql 8</a></td>
+							</tr>
+						</table>
+					</div>
+					<div class="footer-content">
+						<img src="static/images/WoodBlog_54.jpg" alt="">
+						<img src="static/images/WoodBlog_56.jpg" alt="">
+						<img src="static/images/WoodBlog_58.jpg" alt="">
+						<img src="static/images/WoodBlog_63.jpg" alt="">
+						<img src="static/images/WoodBlog_64.jpg" alt="">
+						<img src="static/images/WoodBlog_65.jpg" alt="">
+					</div>
+					<div class="footer-content">
+						<div class="last-tweet">
+							<div>
+								<span class="tweet-name">@JohnCarter</span> 
+								Text Text Text Text Text Text Text Text Text Text Text 
+							</div>
+							<div class="tweet-date">23 minutes ago</div>
+						</div>
+
+						<div class="last-tweet">
+							<div>
+								<span class="tweet-name">@JohnCarter</span> 
+								Text Text Text Text Text Text Text Text Text Text Text 
+							</div>
+							<div class="tweet-date">23 minutes ago</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="copyright">COPYRIGHT 2015 - PECHATNY</div>
+		</footer>	
+	</div>
+</body>
+</html>
